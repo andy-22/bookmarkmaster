@@ -51,10 +51,12 @@ def general(request):
 def get_version_info(ttl_hash=None):
     latest_version = None
     try:
-        latest_version_url = 'https://api.github.com/repos/sissbruecker/linkding/releases/latest'
-        response = requests.get(latest_version_url, timeout=5)
-        json = response.json()
-        latest_version = json['name'][1:]
+	    # This was causing API Limit error from github. Disabled it for now
+        # latest_version_url = 'https://api.github.com/repos/sissbruecker/linkding/releases/latest'
+        # response = requests.get(latest_version_url, timeout=5)
+        # json = response.json()
+        # latest_version = json['name'][1:]
+        latest_version = ''
     except requests.exceptions.RequestException:
         pass
 
